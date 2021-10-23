@@ -1,0 +1,34 @@
+@import './variable.scss';
+
+div.footer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 2em;
+  border-top: 0.3em solid $primary;
+  background: $black;
+
+  section {
+    h4 {
+      font-weight: 300;
+      text-transform: uppercase;
+      span {
+        text-transform: uppercase;
+        font-style: italic;
+      }
+    }
+    p {
+      margin: 0;
+    }
+  }
+
+  section:first-child {
+    display: grid;
+    place-items: end start;
+  }
+
+  section:last-child {
+    display: grid;
+    place-items: end end;
+  }
+
+}

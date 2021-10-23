@@ -1,0 +1,117 @@
+@import './variable';
+
+div.layout {
+  &.index-page {
+
+    div.initial-container {
+      position: relative;
+      height: 100vh;
+
+      div.home-background-image {
+        background-image: url('/images/main-background.png');
+        background-size: cover;
+        background-position: center center;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -5;
+        filter: blur(4px);
+      }
+    }
+
+    div.about-us-container {
+      padding: 2em;
+      background: $black;
+    }
+  }
+}
+
+section.home-main-section {
+  padding: 8em 3em 3em 3em;
+  display: grid;
+  place-items: center center;
+
+  h1, h3 {
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-size: 4em;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+  }
+
+  h3 {
+    letter-spacing: 0.1em;
+    font-weight: 300;
+    margin: 1.45em 0;
+  }
+}
+
+section.showreel-button-section {
+  position: absolute;
+  bottom: 0;
+  margin: 3em auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+button.showreel-button {
+  padding: 1em 2em;
+  border-radius: 99px;
+  background: none;
+  transition: all 0.3s linear;
+  border: none;
+
+  &:hover {
+    background: $black;
+  }
+
+  p {
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 1.3em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+}
+
+div.description-and-profile {
+  display: grid;
+  grid-template-columns: calc(100% - 20em) 20em;
+  padding-top: 1em;
+  & > div {
+    p {
+      font-weight: 200;
+      letter-spacing: 1.2px;
+      font-size: 1.2em;
+    }
+  }
+
+  section.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em;
+    button {
+      margin: 0 10px;
+    }
+  }
+
+  div.profile-display {
+
+    & > div {
+      display: grid !important;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+}
