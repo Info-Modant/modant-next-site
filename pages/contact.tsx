@@ -1,6 +1,6 @@
 import {Layout} from "../components/Layout";
 import {Color} from "../utilities/color";
-import {Title} from "../components/smallcomponents/Title";
+import {CapitalisedHeading, Title} from "../components/smallcomponents/Title";
 import {ContactUsInfo} from "../data/dataStructure";
 import {Formik, Field} from 'formik';
 import {CheckboxContainer, SubjectContainer} from "../components/smallcomponents/Form";
@@ -103,7 +103,9 @@ function MoreInfo({ contactUsInfo }: MoreInfoProps) {
 
   return (
     <div className="more-info">
-      <h2>By Appointment Only.</h2>
+      <CapitalisedHeading wrapper="h2" fontWeight="200">
+        By Appointment Only.
+      </CapitalisedHeading>
       <div className="address">
         <span>{ address.addressLine1 }</span>
         <span>{ address.addressLine2 }</span>
@@ -112,7 +114,7 @@ function MoreInfo({ contactUsInfo }: MoreInfoProps) {
       <div className="contact-methods">
         {
           contactMethods.map((c, i) =>
-            <a key={ i } href={ c.href }>{ c.displayName }</a>
+            <a key={ i } href={ c.href } target="_blank">{ c.displayName }</a>
           )
         }
       </div>
