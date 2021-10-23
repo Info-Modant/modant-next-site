@@ -70,10 +70,12 @@ function AboutUsContainer() {
           </section>
         </div>
         <div className="profile-section">
-          { aboutUs.profiles.map((profile, i) => {
+          <section>
+            { aboutUs.profiles.map((profile, i) => {
 
-            return <ProfileDisplay key={ i } profile={ profile } /> })
-          }
+              return <ProfileDisplay key={ i } profile={ profile } /> })
+            }
+          </section>
         </div>
       </div>
     </div>

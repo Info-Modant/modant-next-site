@@ -35,6 +35,7 @@ section.home-main-section {
 
   h1, h3 {
     text-transform: uppercase;
+    text-align: center;
   }
 
   h1 {
@@ -47,6 +48,18 @@ section.home-main-section {
     letter-spacing: 0.1em;
     font-weight: 300;
     margin: 1.45em 0;
+  }
+
+  @media (max-width: $largeTablet) {
+    padding: 8em 1em 3em 1em;
+    h1, h3 {
+      letter-spacing: 0.05em;
+    }
+  }
+  @media (max-width: $phone) {
+    h1 {
+      font-size: 3em;
+    }
   }
 }
 
@@ -81,7 +94,13 @@ button.showreel-button {
 
 div.description-and-profile {
   display: grid;
-  grid-template-columns: calc(100% - 20em) 20em;
+  grid-template-columns: calc(100% - 22em) 20em;
+  grid-gap: 2em;
+
+  @media (max-width: $largeTablet) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
   padding-top: 1em;
   & > div {
     p {
@@ -93,25 +112,67 @@ div.description-and-profile {
 
   section.buttons {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin-top: 3em;
     button {
-      margin: 0 10px;
+      margin: 10px;
     }
   }
 
-  div.profile-display {
+  div.profile-section {
+    display: grid;
+    place-items: center;
 
-    & > div {
-      display: grid !important;
+    & > section {
+      max-width: 15em;
+      width: 100%;
     }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
+    div.profile-display {
+      margin: 0 auto;
+
+      h4 {
+        text-align: center;
+        margin: 1.5em 0;
+      }
+
+      & > div {
+        display: grid !important;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+
+    @media (max-width: $largeTablet) {
+      & > section {
+        max-width: none;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      div.profile-display {
+        width: calc(100% - 10em);
+      }
+    }
+    @media (max-width: $smallTablet) {
+      div.profile-display {
+        width: calc(100% - 5em);
+      }
+    }
+    @media (max-width: $phone) {
+      & > section {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      div.profile-display {
+        width: calc(100% - 5em);
+      }
     }
   }
 }
