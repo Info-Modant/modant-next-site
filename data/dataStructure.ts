@@ -41,3 +41,20 @@ export interface PortfolioItem {
   videoLink: string,
   date: string,
 }
+
+export interface ContactUsInfo {
+  address: Address,
+  contactMethods: ContactMethod[],
+}
+
+export interface Address {
+  addressLine1: string,
+  addressLine2: string,
+  city: string,
+  postcode: string,
+}
+
+export interface ContactMethod {
+  displayName: string,
+  href: string,
+}

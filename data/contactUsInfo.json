@@ -1,0 +1,26 @@
+{
+  "address": {
+    "addressLine1": "3709 Beetham Tower",
+    "addressLine2": "301 Deansgate",
+    "city": "Manchester",
+    "postcode": "M3 4LU"
+  },
+  "contactMethods": [
+    {
+      "displayName": "Facebook",
+      "href": "https://www.facebook.com"
+    },
+    {
+      "displayName": "Instagram",
+      "href": "https://www.instagram.com"
+    },
+    {
+      "displayName": "LinkedIn",
+      "href": "https://www.linkedin.com"
+    },
+    {
+      "displayName": "info@modant.co.uk",
+      "href": "mailto:info@modant.co.uk"
+    }
+  ]
+}

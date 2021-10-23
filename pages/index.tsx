@@ -9,6 +9,7 @@ import {RegExp} from "../utilities/regExp";
 import {Button} from "../components/smallcomponents/Button";
 import {faAddressBook, faFolder} from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
+import {useRouter} from "next/router";
 
 // Retrieve data
 const siteInfo = require('../data/siteInfo.json') as SiteInfo;
@@ -54,6 +55,8 @@ function ShowReelButton() {
 
 function AboutUsContainer() {
 
+  const router = useRouter();
+
   return (
     <div className="about-us-container">
       <Title title={ aboutUs.title } underlineColor={ Color.Primary } />
@@ -65,7 +68,7 @@ function AboutUsContainer() {
             }
           </section>
           <section className="buttons">
-            <Button leftIcon={faFolder}>Portfolio</Button>
+            <Button leftIcon={faFolder} onClick={ () => router.push('/portfolio') }>Portfolio</Button>
             <Button leftIcon={faAddressBook}>Contact</Button>
           </section>
         </div>
