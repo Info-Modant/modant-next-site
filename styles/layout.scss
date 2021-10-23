@@ -574,6 +574,9 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
+body {
+  background: $black;
+}
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;

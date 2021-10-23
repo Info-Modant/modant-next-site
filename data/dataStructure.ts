@@ -31,3 +31,13 @@ export interface FooterInfo {
   copyright: string,
   email: string,
 }
+
+export interface PortfolioItem {
+  id: number,
+  title: string,
+  titleInHyphens: string,
+  description: string,
+  thumbnail: string,
+  videoLink: string,
+  date: string,
+}
