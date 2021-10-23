@@ -2,6 +2,9 @@
   "name": "modant-next-site",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "16.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -15,7 +18,7 @@
   },
   "devDependencies": {
     "@types/react": "17.0.31",
-    "eslint": "8.1.0",
+    "eslint": "^8.1.0",
     "eslint-config-next": "11.1.2",
     "typescript": "4.4.4"
   }
