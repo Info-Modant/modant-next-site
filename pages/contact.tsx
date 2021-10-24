@@ -34,7 +34,7 @@ function ContactUsContainer() {
   )
 }
 
-interface InitialValues {
+export interface ContactFormValues {
   name: string,
   email: string,
   description: string,
@@ -54,7 +54,7 @@ interface Enhancements {
 
 function ContactForm() {
 
-  const initialValues: InitialValues = {
+  const initialValues: ContactFormValues = {
     name: '',
     email: '',
     description: '',
