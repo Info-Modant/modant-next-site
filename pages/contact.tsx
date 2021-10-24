@@ -3,7 +3,14 @@ import {Color} from "../utilities/color";
 import {CapitalisedHeading, Title} from "../components/smallcomponents/Title";
 import {ContactUsInfo} from "../data/dataStructure";
 import {Formik, Field} from 'formik';
-import {CheckboxContainer, SubjectContainer} from "../components/smallcomponents/Form";
+import {
+  ButtonContainer,
+  CheckboxContainer,
+  CheckBoxFieldContainer,
+  SubjectContainer
+} from "../components/smallcomponents/Form";
+import {Button} from "../components/smallcomponents/Button";
+import { RegExp } from "../utilities/regExp";
 
 const contactUsInfo = require('../data/contactUsInfo.json') as ContactUsInfo;
 
@@ -34,6 +41,12 @@ interface InitialValues {
   enhancements: Enhancements,
 }
 
+interface FormErrors {
+  name?: string,
+  email?: string,
+  description?: string,
+}
+
 interface Enhancements {
   droneFootage: boolean,
   ultraHd: boolean,
@@ -55,6 +68,23 @@ function ContactForm() {
     <div className="contact-form">
       <Formik
         initialValues={ initialValues }
+        validate={ ({ name, email, description }) => {
+          const errors: FormErrors = {};
+
+          if (name.trim().length < 3) {
+            errors.name = 'Name must be at least 3 characters';
+          }
+
+          if (email.trim().length < 3 || !email.match(RegExp.Email)) {
+            errors.email = 'Email is invalid';
+          }
+
+          if (description.trim().length < 10) {
+            errors.description = 'Description must at least contain 10 characters';
+          }
+
+          return errors;
+        } }
         onSubmit={ (values, { setSubmitting }) => {
           console.log(values);
         } }
@@ -63,18 +93,27 @@ function ContactForm() {
           ({ values,
              handleBlur,
              handleChange,
-             handleSubmit }) =>
+             handleSubmit,
+             touched,
+             errors,
+             isValid,
+             isSubmitting,
+             dirty
+          }) =>
             <form onSubmit={ handleSubmit }>
-              <SubjectContainer title="Name">
-                <input id="name" name="name" value={ values.name } onChange={ handleChange } onBlur={ handleBlur } />
+              <SubjectContainer title="Name" inputLength={ values.name.length } error={ touched.name ? errors.name : undefined }>
+                <input id="name" name="name" className="text-input" placeholder="Name"
+                       value={ values.name } onChange={ handleChange } onBlur={ handleBlur } />
               </SubjectContainer>
-              <SubjectContainer title="Email">
-                <input id="email" name="email" value={ values.email } onChange={ handleChange } onBlur={ handleBlur } />
+              <SubjectContainer title="Email" inputLength={ values.email.length } error={ touched.email ? errors.email : undefined }>
+                <input id="email" name="email" className="text-input" placeholder="Email"
+                       value={ values.email } onChange={ handleChange } onBlur={ handleBlur } />
               </SubjectContainer>
-              <SubjectContainer title="Brief description">
-                <textarea id="description" name="description" value={ values.description } onChange={ handleChange } onBlur={ handleBlur } />
+              <SubjectContainer title="Brief description" inputLength={ values.description.length } error={ touched.description ? errors.description : undefined }>
+                <textarea id="description" name="description" placeholder="Description"
+                          value={ values.description } onChange={ handleChange } onBlur={ handleBlur } />
               </SubjectContainer>
-              <SubjectContainer title="Enhancements">
+              <CheckBoxFieldContainer title="Enhancements">
 
                 <CheckboxContainer label="Drone Footage">
                   <Field type="checkbox" id="droneFootage" name="enhancements.droneFootage"
@@ -85,7 +124,11 @@ function ContactForm() {
                          checked={ values.enhancements.ultraHd }  value={ values.enhancements.ultraHd } />
                 </CheckboxContainer>
 
-              </SubjectContainer>
+              </CheckBoxFieldContainer>
+
+              <ButtonContainer>
+                <Button type="submit" disabled={ !isValid || isSubmitting || !dirty }>Send</Button>
+              </ButtonContainer>
             </form>
         }
       </Formik>

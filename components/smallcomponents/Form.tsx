@@ -1,23 +1,37 @@
-import {ReactNode, ReactNodeArray} from "react";
+import { ReactNode, ReactNodeArray } from "react";
 
-interface SubmitContainerProps {
+interface FormContainerProps extends ButtonContainerProps {
   title: string,
-  children: ReactNode | ReactNodeArray,
 }
 
-export function SubjectContainer({ title, children }: SubmitContainerProps) {
+interface SubjectContainerProps extends FormContainerProps {
+  inputLength?: number,
+  error?: string,
+}
+
+export function SubjectContainer({ title, children, inputLength, error }: SubjectContainerProps) {
 
   return (
-    <div className="form-subject-container">
-      <h3>{ title }</h3>
+    <div className={`form-subject-container ${ inputLength && inputLength > 0 ? 'label-transition' : '' }`}>
+      <label>{ title }</label>
+      { children }
+      { error && <Error error={ error } /> }
+    </div>
+  )
+}
+
+export function CheckBoxFieldContainer({ title, children }: FormContainerProps) {
+
+  return (
+    <div className="checkbox-field-container">
+      <label>{ title }</label>
       { children }
     </div>
   )
 }
 
-interface CheckboxContainerProps {
+interface CheckboxContainerProps extends ButtonContainerProps {
   label: string,
-  children: ReactNode | ReactNodeArray,
 }
 
 export function CheckboxContainer({ label, children }: CheckboxContainerProps) {
@@ -28,4 +42,20 @@ export function CheckboxContainer({ label, children }: CheckboxContainerProps) {
       <span>{ label }</span>
     </div>
   )
+}
+
+interface ButtonContainerProps {
+  children: ReactNode | ReactNodeArray,
+}
+
+export function ButtonContainer({ children }: ButtonContainerProps) {
+  return <div className="button-container">{ children }</div>
+}
+
+interface ErrorProps {
+  error: string,
+}
+
+export function Error({ error }: ErrorProps) {
+  return <span className="error">{ error }</span>
 }
