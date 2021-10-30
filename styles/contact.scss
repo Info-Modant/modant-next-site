@@ -10,6 +10,29 @@ div.contact-us-container {
   div.more-info {
     border-left: 0.2em solid $primary;
     padding-left: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  div.address {
+    p {
+      font-size: 1.2em;
+      margin-bottom: 0.3em;
+    }
+    margin-bottom: 1em;
+  }
+
+  div.contact-methods {
+    p {
+      font-size: 1.2em;
+      margin-bottom: 0.5em;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 }
 

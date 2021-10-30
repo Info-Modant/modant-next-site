@@ -151,14 +151,14 @@ function MoreInfo({ contactUsInfo }: MoreInfoProps) {
       </CapitalisedHeading>
       <section className="remainder">
         <div className="address">
-          <span>{ address.addressLine1 }</span>
-          <span>{ address.addressLine2 }</span>
-          <span>{ address.city }, { address.postcode }</span>
+          <p>{ address.addressLine1 }</p>
+          <p>{ address.addressLine2 }</p>
+          <p>{ address.city }, { address.postcode }</p>
         </div>
         <div className="contact-methods">
           {
             contactMethods.map((c, i) =>
-              <a key={ i } href={ c.href } target="_blank" rel="noreferrer">{ c.displayName }</a>
+              <a key={ i } href={ c.href } target="_blank" rel="noreferrer"><p>{ c.displayName }</p></a>
             )
           }
         </div>
