@@ -1,6 +1,8 @@
 @import './variable';
 
 div.layout {
+  min-height: 100vh;
+
   &.index-page {
 
     div.initial-container {

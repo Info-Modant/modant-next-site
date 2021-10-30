@@ -1,7 +1,11 @@
+import {Layout} from "../components/Layout";
+import {NotFound} from "../components/NotFound";
 
 export default function NotFoundPage() {
 
   return (
-    <h1>404</h1>
+    <Layout className="not-found-page">
+      <NotFound />
+    </Layout>
   )
 }

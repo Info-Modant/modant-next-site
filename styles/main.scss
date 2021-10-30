@@ -39,3 +39,16 @@ div.footer {
 span.error {
   color: $red-600;
 }
+
+body {
+  &::-webkit-scrollbar {
+    width: 0.5em;
+  }
+  &::-webkit-scrollbar-track {
+    background: $black;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $primary-700;
+    border-radius: 0.25em;
+  }
+}

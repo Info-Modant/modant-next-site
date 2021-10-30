@@ -149,18 +149,20 @@ function MoreInfo({ contactUsInfo }: MoreInfoProps) {
       <CapitalisedHeading wrapper="h2" fontWeight="200">
         By Appointment Only.
       </CapitalisedHeading>
-      <div className="address">
-        <span>{ address.addressLine1 }</span>
-        <span>{ address.addressLine2 }</span>
-        <span>{ address.city }, { address.postcode }</span>
-      </div>
-      <div className="contact-methods">
-        {
-          contactMethods.map((c, i) =>
-            <a key={ i } href={ c.href } target="_blank">{ c.displayName }</a>
-          )
-        }
-      </div>
+      <section className="remainder">
+        <div className="address">
+          <span>{ address.addressLine1 }</span>
+          <span>{ address.addressLine2 }</span>
+          <span>{ address.city }, { address.postcode }</span>
+        </div>
+        <div className="contact-methods">
+          {
+            contactMethods.map((c, i) =>
+              <a key={ i } href={ c.href } target="_blank" rel="noreferrer">{ c.displayName }</a>
+            )
+          }
+        </div>
+      </section>
     </div>
   )
 }

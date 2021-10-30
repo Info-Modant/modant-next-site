@@ -70,3 +70,15 @@ div.portfolio-items-grid {
     box-shadow: none;
   }
 }
+
+div.individual-project-display-container {
+  padding: 3em;
+  margin: 0 auto;
+  display: grid;
+  place-items: start center;
+
+  p.description {
+    font-style: italic;
+    margin: 1em 0;
+  }
+}

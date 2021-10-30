@@ -56,7 +56,7 @@ function Project({ project }: PortfolioItemProps) {
              onClick={ () => router.push({
                pathname: `/portfolio/${ project.titleInHyphens }`,
                query: {
-                 titleInHyphens: project.titleInHyphens,
+                 id: project.id.toString(),
                }
              }) }
     >
