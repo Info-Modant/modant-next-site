@@ -39,7 +39,6 @@ export interface PortfolioItem {
   description: string,
   thumbnail: string,
   videoLink: string,
-  date: string,
 }
 
 export interface ContactUsInfo {

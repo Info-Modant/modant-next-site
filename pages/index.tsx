@@ -3,12 +3,8 @@ import {Layout} from "../components/Layout";
 import {Color} from "../utilities/color";
 import ReelVisionLogo from "../public/images/ReelVisionLogo";
 import {Divider} from "../components/smallcomponents/Divider";
-import {AboutUs, Profile, SiteInfo} from "../data/dataStructure";
-import {Title} from "../components/smallcomponents/Title";
-import {RegExp} from "../utilities/regExp";
-import {Button} from "../components/smallcomponents/Button";
-import {faAddressBook, faFolder} from '@fortawesome/free-solid-svg-icons';
-import Image from 'next/image';
+import {AboutUs, SiteInfo} from "../data/dataStructure";
+import { AboutUsContainer } from "../components/AboutUsContainer";
 import {useRouter} from "next/router";
 
 // Retrieve data
@@ -20,7 +16,7 @@ export default function IndexPage() {
   return (
     <Layout className="index-page">
       <InitialContainer />
-      <AboutUsContainer />
+      <AboutUsContainer aboutUs={ aboutUs } />
     </Layout>
   )
 
@@ -48,53 +44,10 @@ function InitialContainer() {
 }
 
 function ShowReelButton() {
-  return (
-    <button className="showreel-button"><p>Showreel</p></button>
-  )
-}
-
-function AboutUsContainer() {
 
   const router = useRouter();
 
   return (
-    <div className="about-us-container">
-      <Title title={ aboutUs.title } underlineColor={ Color.Primary } />
-      <div className="description-and-profile">
-        <div className="description-section">
-          <section className="description">
-            {
-              aboutUs.description.split(RegExp.NextLine).map((text, i) => <p key={ i }>{ text }<br/></p>)
-            }
-          </section>
-          <section className="buttons">
-            <Button leftIcon={faFolder} onClick={ () => router.push('/portfolio') }>Portfolio</Button>
-            <Button leftIcon={faAddressBook}>Contact</Button>
-          </section>
-        </div>
-        <div className="profile-section">
-          <section>
-            { aboutUs.profiles.map((profile, i) => {
-
-              return <ProfileDisplay key={ i } profile={ profile } /> })
-            }
-          </section>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-interface ProfileDisplayProps {
-  profile: Profile
-}
-
-function ProfileDisplay({ profile }: ProfileDisplayProps) {
-
-  return (
-    <div className="profile-display">
-      <Image src={ profile.image } width="100%" height="100%" alt={`${ profile.name }'s profile`} />
-      <h4>{ profile.name }</h4>
-    </div>
+    <button className="showreel-button" onClick={ () => router.push('/showreel') }><p>Showreel</p></button>
   )
 }

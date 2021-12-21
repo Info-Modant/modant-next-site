@@ -63,7 +63,7 @@ function Project({ project }: PortfolioItemProps) {
       <div className={`animation-container ${hover ? 'hover-animation' : 'exit-hover-animation'}`}>
         <div className="img-container">
           <Image src={project.thumbnail} width="100%" height="100%"
-                 alt={`Thumbnail for ${project.title} created in ${project.date}`}/>
+                 alt={`Thumbnail for ${ project.title }`}/>
         </div>
         <div className="title-container">
           <h2>{project.title}</h2>

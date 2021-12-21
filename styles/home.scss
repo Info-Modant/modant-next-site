@@ -22,12 +22,12 @@ div.layout {
         filter: blur(4px);
       }
     }
-
-    div.about-us-container {
-      padding: 2em;
-      background: $black;
-    }
   }
+}
+
+div.about-us-container {
+  padding: 2em;
+  background: $black;
 }
 
 section.home-main-section {
