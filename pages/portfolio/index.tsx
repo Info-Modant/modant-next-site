@@ -5,6 +5,7 @@ import {PortfolioItem} from "../../data/dataStructure";
 import Image from 'next/image';
 import {useState} from "react";
 import { useRouter } from "next/router";
+import defaultPortfolioBackground from '../../public/images/default-portfolio-background.png';
 
 const portfolio = require('../../data/portfolios.json') as PortfolioItem[];
 
@@ -62,7 +63,7 @@ function Project({ project }: PortfolioItemProps) {
     >
       <div className={`animation-container ${hover ? 'hover-animation' : 'exit-hover-animation'}`}>
         <div className="img-container">
-          <Image src={project.thumbnail} width="100%" height="100%"
+          <Image src={ project.thumbnail || defaultPortfolioBackground } width="100%" height="100%"
                  alt={`Thumbnail for ${ project.title }`}/>
         </div>
         <div className="title-container">

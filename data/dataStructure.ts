@@ -37,7 +37,7 @@ export interface PortfolioItem {
   title: string,
   titleInHyphens: string,
   description: string,
-  thumbnail: string,
+  thumbnail?: string,
   videoLink: string,
 }
 

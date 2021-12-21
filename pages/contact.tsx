@@ -112,10 +112,13 @@ function ContactForm() {
 
           return errors;
         } }
-        onSubmit={ (values, { setSubmitting }) => {
+        onSubmit={ (values, { setSubmitting, resetForm }) => {
           setSubmitting(true);
           sendForm(values, handleSuccess, handleError)
-            .then(() => setSubmitting(false));
+            .then(() => {
+              resetForm();
+              setSubmitting(false);
+            });
         } }
       >
         {
