@@ -5,6 +5,7 @@ import {NotFound} from "../../components/NotFound";
 import {Title} from "../../components/smallcomponents/Title";
 import {Color} from "../../utilities/color";
 import { Layout } from "../../components/Layout";
+import {Vimeo} from "../../components/Vimeo";
 
 const portfolio = require('../../data/portfolios.json') as PortfolioItem[];
 
@@ -38,9 +39,7 @@ interface IndividualProjectPageProps {
 
 export default function IndividualProjectPage({ project }: IndividualProjectPageProps) {
 
-  console.log(project);
-  const { pathname, asPath } = useRouter();
-  console.log(pathname, asPath);
+  const { asPath } = useRouter();
 
   const [projectDisplayState, setProjectDisplayState] = useState<ProjectDisplayState>({
     project: project,
@@ -65,8 +64,6 @@ export default function IndividualProjectPage({ project }: IndividualProjectPage
     }
   }, [project]);
 
-  console.log(projectDisplayState);
-
   return (
     <Layout className="portfolio-page">
       {
@@ -75,9 +72,11 @@ export default function IndividualProjectPage({ project }: IndividualProjectPage
           projectDisplayState.project &&
           <div className="individual-project-display-container">
             <Title title={ projectDisplayState.project.title } underlineColor={ Color.Primary } />
-            <section className="video-container">
-              <span>Video goes here, { projectDisplayState.project.videoLink }</span>
-            </section>
+
+            <Vimeo title={ projectDisplayState.project.title }
+                   titleInHyphens={ projectDisplayState.project.titleInHyphens }
+                   src={ projectDisplayState.project.videoLink }  />
+
             <p className="description">{ projectDisplayState.project.description }</p>
           </div>
       }
