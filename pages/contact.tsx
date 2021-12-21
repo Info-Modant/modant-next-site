@@ -2,7 +2,7 @@ import {Layout} from "../components/Layout";
 import {Color} from "../utilities/color";
 import {CapitalisedHeading, Title} from "../components/smallcomponents/Title";
 import {ContactUsInfo} from "../data/dataStructure";
-import {Formik, Field} from 'formik';
+import {Field, Formik} from 'formik';
 import {
   ButtonContainer,
   CheckboxContainer,
@@ -10,8 +10,10 @@ import {
   SubjectContainer
 } from "../components/smallcomponents/Form";
 import {Button} from "../components/smallcomponents/Button";
-import { RegExp } from "../utilities/regExp";
+import {RegExp} from "../utilities/regExp";
 import {sendForm} from "../library/database";
+import {useContext} from "react";
+import ToastContext, {ToastType} from "../contexts/toastContext";
 
 const contactUsInfo = require('../data/contactUsInfo.json') as ContactUsInfo;
 
@@ -55,6 +57,8 @@ interface Enhancements {
 
 function ContactForm() {
 
+  const { addToastToList } = useContext(ToastContext);
+
   const initialValues: ContactFormValues = {
     name: '',
     email: '',
@@ -64,6 +68,28 @@ function ContactForm() {
       ultraHd: false,
     },
   };
+
+  const randomInt = () => { // min and max included
+    return Math.floor(Math.random() * 1000);
+  }
+
+  const handleSuccess = () => {
+    addToastToList({
+      id: randomInt(),
+      description: "Form is successfully sent",
+      type: ToastType.Success,
+      title: "Success",
+    });
+  }
+
+  const handleError = () => {
+    addToastToList({
+      id: randomInt(),
+      description: "Form has failed to send, please try again later.",
+      type: ToastType.Error,
+      title: "Error",
+    });
+  }
 
   return (
     <div className="contact-form">
@@ -88,7 +114,7 @@ function ContactForm() {
         } }
         onSubmit={ (values, { setSubmitting }) => {
           setSubmitting(true);
-          sendForm(values)
+          sendForm(values, handleSuccess, handleError)
             .then(() => setSubmitting(false));
         } }
       >

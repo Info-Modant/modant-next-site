@@ -3,6 +3,7 @@ import { Header } from "./Header";
 import { Helmet } from 'react-helmet';
 import {Nav, SiteInfo} from "../data/dataStructure";
 import {Footer} from "./Footer";
+import {ToastContainer} from "./Toast";
 
 const navList = require('../data/nav.json') as Nav[];
 const siteInfo = require('../data/siteInfo.json') as SiteInfo;
@@ -32,6 +33,7 @@ export function Layout ({ children, className }: LayoutProps) {
         <main>{children}</main>
       </div>
       <Footer />
+      <ToastContainer />
     </>
   )
 }
