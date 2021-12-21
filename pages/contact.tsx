@@ -11,6 +11,7 @@ import {
 } from "../components/smallcomponents/Form";
 import {Button} from "../components/smallcomponents/Button";
 import { RegExp } from "../utilities/regExp";
+import {sendForm} from "../library/database";
 
 const contactUsInfo = require('../data/contactUsInfo.json') as ContactUsInfo;
 
@@ -86,7 +87,9 @@ function ContactForm() {
           return errors;
         } }
         onSubmit={ (values, { setSubmitting }) => {
-          console.log(values);
+          setSubmitting(true);
+          sendForm(values)
+            .then(() => setSubmitting(false));
         } }
       >
         {
