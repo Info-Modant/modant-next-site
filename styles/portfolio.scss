@@ -82,6 +82,10 @@ div.individual-project-display-container {
     font-style: italic;
     margin: 1em 0;
   }
+
+  @media (max-width: $phone) {
+    padding: 3em 0;
+  }
 }
 
 div.vimeo-container {
@@ -98,7 +102,7 @@ div.vimeo-container {
     max-width: 90em;
 
     @media (max-width: 1650px) {
-      padding: 42.5% 0 0 0;
+      padding: 56.25% 0 0 0;
     }
   }
 

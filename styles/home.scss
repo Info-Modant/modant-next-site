@@ -126,6 +126,11 @@ div.description-and-profile {
   div.profile-section {
     display: grid;
     place-items: center;
+    border-left: 0.2em solid $primary;
+
+    @media (max-width: $largeTablet) {
+      border: none;
+    }
 
     & > section {
       max-width: 15em;
