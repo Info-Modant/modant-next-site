@@ -31,7 +31,7 @@ div.about-us-container {
 }
 
 section.home-main-section {
-  padding: 8em 3em 3em 3em;
+  padding: 35vh 3em 3em 3em;
   display: grid;
   place-items: center center;
 
@@ -53,7 +53,6 @@ section.home-main-section {
   }
 
   @media (max-width: $largeTablet) {
-    padding: 8em 1em 3em 1em;
     h1, h3 {
       letter-spacing: 0.05em;
     }
@@ -81,10 +80,6 @@ button.showreel-button {
   transition: all 0.3s linear;
   border: none;
 
-  &:hover {
-    background: $black;
-  }
-
   p {
     text-transform: uppercase;
     margin: 0;
@@ -92,23 +87,32 @@ button.showreel-button {
     font-weight: 700;
     letter-spacing: 0.1em;
   }
+
+  &:hover {
+    background: $primary;
+    p {
+      color: $black;
+    }
+  }
 }
 
 div.description-and-profile {
   display: grid;
-  grid-template-columns: calc(100% - 22em) 20em;
+  grid-template-columns: calc(100% - 32em) 30em;
   grid-gap: 2em;
+  padding-top: 3em;
 
   @media (max-width: $largeTablet) {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  padding-top: 1em;
   & > div {
     p {
-      font-weight: 200;
-      letter-spacing: 1.2px;
-      font-size: 1.2em;
+      font-weight: 100;
+      letter-spacing: 1.3px;
+      font-size: 1.4em;
+      text-align: justify;
+      line-height: 1.3em;
     }
   }
 
