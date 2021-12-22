@@ -7,6 +7,14 @@ div.portfolio-items-grid {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 2em;
 
+  @media (max-width: $smallTablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $phone) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
   section.project {
     display: grid;
     place-items: center;

@@ -1,7 +1,3 @@
-export interface Dict<T> {
-  [key: string]: T;
-}
-
 export interface SiteInfo {
   title: string,
   siteTitle: string,

@@ -2,10 +2,10 @@
 
 div.contact-us-container {
   display: grid;
-  grid-template-columns: calc(70% - 2em) 30%;
-  grid-gap: 2em;
+  grid-template-columns: 55% 35%;
+  grid-gap: 10%;
   margin: 5em auto 2em auto;
-  max-width: 1500px;
+  //max-width: 1500px;
 
   @media (max-width: $smallTablet) {
     grid-template-columns: repeat(1, 1fr);
@@ -13,7 +13,7 @@ div.contact-us-container {
 
   div.more-info {
     border-left: 0.2em solid $primary;
-    padding-left: 1em;
+    padding-left: 10%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
