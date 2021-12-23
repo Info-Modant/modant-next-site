@@ -3,11 +3,12 @@ module.exports = {
   reactStrictMode: true,
   env: {
     //firebase
-    FIREBASE_API_KEY: 'AIzaSyCiU4iZehLNeCrCuuWxSM2PmOFHMZGbx9Y',
-    FIREBASE_AUTH_DOMAIN: 'modant-form.firebaseapp.com',
-    FIREBASE_PROJECT_ID: 'modant-form',
-    FIREBASE_STORAGE_BUCKET: 'modant-form.appspot.com',
-    FIREBASE_MESSAGING_SENDER_ID: '642373872230',
-    FIREBASE_APP_ID: '1:642373872230:web:42fe525153c2f46a4c1ba7',
+    FIREBASE_API_KEY: 'AIzaSyBXxNOaIe6yTDcDmTUoJO1L2CiE3AP2HRE',
+    FIREBASE_AUTH_DOMAIN: 'modant-enquiry-form.firebaseapp.com',
+    FIREBASE_PROJECT_ID: 'modant-enquiry-form',
+    FIREBASE_STORAGE_BUCKET: 'modant-enquiry-form.appspot.com',
+    FIREBASE_MESSAGING_SENDER_ID: '597493715440',
+    FIREBASE_APP_ID: '1:597493715440:web:14387335cb5bc47fe84d35',
+    FIREBASE_MEASUREMENT_ID: 'G-ZBEK2CNE22',
   }
 }
