@@ -8,8 +8,9 @@
     "pageTitle": "Showreel"
   },
   {
-    "href": "/about",
-    "pageTitle": "About us"
+    "href": "/",
+    "pageTitle": "About us",
+    "to": "about"
   },
   {
     "href": "/portfolio",

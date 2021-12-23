@@ -12,12 +12,12 @@ interface AboutUsContainerProps {
   aboutUs: AboutUs,
 }
 
-export function AboutUsContainer({ aboutUs }: AboutUsContainerProps) {
+export function AboutUsContainer({ aboutUs}: AboutUsContainerProps) {
 
   const router = useRouter();
 
   return (
-    <div className="about-us-container">
+    <div className="about-us-container" id="about">
       <Title title={ aboutUs.title } underlineColor={ Color.Primary } />
       <div className="description-and-profile">
         <div className="description-section">

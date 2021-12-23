@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import {Layout} from "../components/Layout";
 import {Color} from "../utilities/color";
 import {Divider} from "../components/smallcomponents/Divider";
@@ -10,12 +10,43 @@ import {useRouter} from "next/router";
 const siteInfo = require('../data/siteInfo.json') as SiteInfo;
 const aboutUs = require('../data/aboutUs.json') as AboutUs;
 
-export default function IndexPage() {
+export async function getServerSideProps (context: {
+  query: {
+    smoothScroll: string | undefined
+  }
+}) {
+  const { query: { smoothScroll } } = context;
+
+  //you can make DB queries using the data in context.query
+  return {
+    props: { smoothScroll }
+  };
+}
+
+interface IndexPageProps {
+  smoothScroll: string | undefined,
+}
+
+export default function IndexPage({ smoothScroll }: IndexPageProps) {
+
+  const aboutUsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    console.log(smoothScroll);
+    if (smoothScroll === 'about' && aboutUsRef !== null) {
+      window.scrollTo({
+        top: aboutUsRef?.current?.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  }, [smoothScroll, aboutUsRef]);
 
   return (
     <Layout className="index-page">
       <InitialContainer />
-      <AboutUsContainer aboutUs={ aboutUs } />
+      <div ref={ aboutUsRef }>
+        <AboutUsContainer aboutUs={ aboutUs } />
+      </div>
     </Layout>
   )
 

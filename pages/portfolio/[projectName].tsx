@@ -58,8 +58,7 @@ export default function IndividualProjectPage({ project }: IndividualProjectPage
       } else {
         setProjectDisplayState({
           project: null,
-          status: DisplayStatus.fail
-        });
+          status: DisplayStatus.fail        });
       }
     }
   }, [project]);

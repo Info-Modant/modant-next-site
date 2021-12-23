@@ -8,6 +8,7 @@ export interface SiteInfo {
 export interface Nav {
   href: string,
   pageTitle: string,
+  to?: string,
 }
 
 export interface AboutUs {

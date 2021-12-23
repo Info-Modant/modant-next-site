@@ -1,12 +1,16 @@
 import * as React from "react"
 import { Nav } from "../data/dataStructure";
 import {ReactNode, ReactNodeArray} from "react";
+import { Link } from 'react-scroll';
+import {useRouter} from "next/router";
 
 interface HeaderProps {
   navList: Nav[]
 }
 
 export function Header ({ navList }: HeaderProps) {
+
+  const router = useRouter();
 
   return (
     <header className="main-nav-header">
@@ -15,7 +19,19 @@ export function Header ({ navList }: HeaderProps) {
       <nav className="nav">
         <ul className="pt-5">{
           navList.map((n, i) => {
-            return <List isLastItem={ i + 1 == navList.length } key={ i }><a href={ n.href }>{ n.pageTitle }</a></List>
+            return (
+              <List isLastItem={ i + 1 == navList.length } key={ i }>
+
+                <a onClick={ () => router.push({
+                  pathname: n.href,
+                  query: {
+                    smoothScroll: n.to
+                  }
+                }) }>
+                  { n.pageTitle }
+                </a>
+              </List>
+            )
           })
         }
         </ul>
