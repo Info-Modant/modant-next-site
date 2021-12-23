@@ -5,6 +5,7 @@ import {Divider} from "../components/smallcomponents/Divider";
 import {AboutUs, SiteInfo} from "../data/dataStructure";
 import {AboutUsContainer} from "../components/AboutUsContainer";
 import {useRouter} from "next/router";
+import {VimeoAutoplay} from "../components/Vimeo";
 
 // Retrieve data
 const siteInfo = require('../data/siteInfo.json') as SiteInfo;
@@ -14,6 +15,7 @@ export default function IndexPage() {
 
   return (
     <Layout className="index-page">
+      <VimeoAutoplay autoplayVideoLink={ siteInfo.autoplayVideoLink } />
       <InitialContainer />
       <AboutUsContainer aboutUs={ aboutUs } />
     </Layout>

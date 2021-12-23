@@ -3,6 +3,7 @@ export interface SiteInfo {
   siteTitle: string,
   subtitle: string,
   description: string,
+  autoplayVideoLink: string,
 }
 
 export interface Nav {

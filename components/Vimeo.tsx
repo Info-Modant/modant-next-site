@@ -14,3 +14,18 @@ export function Vimeo({ titleInHyphens, ...props }: VimeoProps) {
     </div>
     )
 }
+
+interface VimeoAutoplayProps {
+  autoplayVideoLink: string,
+}
+
+export function VimeoAutoplay({ autoplayVideoLink }: VimeoAutoplayProps) {
+  return (
+    <div className="vimeo-container autoplay">
+      <section className="responsive">
+        <iframe frameBorder="0" allow="autoplay; fullscreen" allowFullScreen
+                src={`${ autoplayVideoLink }?autoplay=1&loop=1&autopause=0&muted=1`} />
+      </section>
+    </div>
+  )
+}
