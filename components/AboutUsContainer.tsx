@@ -52,7 +52,7 @@ function ProfileDisplay({ profile }: ProfileDisplayProps) {
 
   return (
     <div className="profile-display">
-      <Image src={ profile.image } width="100%" height="100%" alt={`${ profile.name }'s profile`} />
+      <Image src={ profile.image } width="200" height="200" alt={`${ profile.name }'s profile`} />
       <h4>{ profile.name }</h4>
     </div>
   )
