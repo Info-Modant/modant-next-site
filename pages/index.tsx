@@ -15,7 +15,7 @@ export default function IndexPage() {
 
   return (
     <Layout className="index-page">
-      <VimeoAutoplay autoplayVideoLink={ siteInfo.autoplayVideoLink } />
+      <VimeoAutoplay url={ siteInfo.autoplayVideoLink } />
       <InitialContainer />
       <AboutUsContainer aboutUs={ aboutUs } />
     </Layout>
