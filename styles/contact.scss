@@ -5,10 +5,14 @@ div.contact-us-container {
   grid-template-columns: 55% 35%;
   grid-gap: 10%;
   margin: 5em auto 2em auto;
-  //max-width: 1500px;
 
   @media (max-width: $smallTablet) {
     grid-template-columns: repeat(1, 1fr);
+    grid-gap: 0;
+
+    div.more-info {
+      margin-top: 4em;
+    }
   }
 
   div.more-info {

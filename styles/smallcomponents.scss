@@ -27,6 +27,11 @@ div.title {
     width: 100%;
     height: 0.2em;
   }
+
+  @media (max-width: $phone) {
+    margin-right: 10%;
+    font-size: 0.5em;
+  }
 }
 
 button.modant-button {

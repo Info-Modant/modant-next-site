@@ -137,7 +137,8 @@ div.individual-project-display-container {
   }
 
   @media (max-width: $phone) {
-    padding: 3em 0;
+    padding: 3em 0.5em;
+    place-items: start start;
   }
 }
 

@@ -130,6 +130,16 @@ div.description-and-profile {
     button {
       margin: 10px;
     }
+
+    @media (max-width: $phone) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 1em;
+
+      button {
+        margin: 0;
+      }
+    }
   }
 
   div.profile-section {

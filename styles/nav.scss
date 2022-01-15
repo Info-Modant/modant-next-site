@@ -203,7 +203,7 @@ header.main-nav-header {
     font-weight: 400;
     display: inline-block;
     position: relative;
-    color: #ececee;
+    color: $white;
     transition: all 250ms linear;
   }
   .nav ul li a:hover{
@@ -233,7 +233,7 @@ header.main-nav-header {
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 350ms ease,
+    transition: opacity 500ms ease 1s,
     transform 250ms ease;
   }
   .menu-icon:checked ~ .nav ul li:nth-child(1){
