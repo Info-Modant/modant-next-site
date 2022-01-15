@@ -1,3 +1,4 @@
+import ReactPlayer from 'react-player';
 
 interface VimeoProps {
   src: string,
@@ -5,26 +6,27 @@ interface VimeoProps {
   titleInHyphens: string,
 }
 
-export function Vimeo({ titleInHyphens, ...props }: VimeoProps) {
+export function Vimeo({ titleInHyphens, src }: VimeoProps) {
   return (
     <div className="vimeo-container" id={`vimeo-container-for-${ titleInHyphens }`}>
       <section className="responsive">
-        <iframe frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen { ...props } />
+        <ReactPlayer url={ src } className="react-player" allowFullScreen width="100%" height="100%" controls={ true } />
       </section>
     </div>
     )
 }
 
 interface VimeoAutoplayProps {
-  autoplayVideoLink: string,
+  url: string,
 }
 
-export function VimeoAutoplay({ autoplayVideoLink }: VimeoAutoplayProps) {
+export function VimeoAutoplay({ url }: VimeoAutoplayProps) {
   return (
     <div className="vimeo-container autoplay">
       <section className="responsive">
-        <iframe frameBorder="0" allow="autoplay; fullscreen" allowFullScreen
-                src={`${ autoplayVideoLink }?autoplay=1&loop=1&autopause=0&muted=1`} />
+        <ReactPlayer url={ url } className="react-player" playing muted width="100%" height="100%"
+          config={{ vimeo: { playerOptions: { background: true }}}}
+        />
       </section>
     </div>
   )
