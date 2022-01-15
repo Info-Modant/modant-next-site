@@ -25,7 +25,14 @@ export function VimeoAutoplay({ url }: VimeoAutoplayProps) {
     <div className="vimeo-container autoplay">
       <section className="responsive">
         <ReactPlayer url={ url } className="react-player" playing muted width="100%" height="100%"
-          config={{ vimeo: { playerOptions: { background: true }}}}
+          config={ {
+            vimeo: {
+              playerOptions: {
+                background: true,
+                loop: true,
+              },
+            }
+          } }
         />
       </section>
     </div>
