@@ -103,6 +103,10 @@ div.description-and-profile {
   grid-gap: 2em;
   padding-top: 3em;
 
+  @media (max-width: $narrowDesktop) {
+    grid-template-columns: calc(100% - 27em) 25em;
+  }
+
   @media (max-width: $largeTablet) {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -193,11 +197,8 @@ div.description-and-profile {
       }
     }
     @media (max-width: $phone) {
-      & > section {
-        grid-template-columns: repeat(1, 1fr);
-      }
       div.profile-display {
-        width: calc(100% - 5em);
+        width: 90%;
       }
     }
   }
