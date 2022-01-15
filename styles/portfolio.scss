@@ -1,5 +1,9 @@
 @import './variable';
 
+section.relative {
+  position: relative;
+}
+
 div.portfolio-items-grid {
   margin: 2em 0;
   display: grid;
@@ -20,27 +24,50 @@ div.portfolio-items-grid {
     place-items: center;
     width: 100%;
     position: relative;
-    height: 25vw;
+    height: 20vw;
+
+    @media (max-width: $largeTablet) {
+      height: 30vw;
+    }
 
     @media (max-width: $smallTablet) {
-      height: 35vw;
+      height: 40vw;
     }
 
     @media (max-width: $phone) {
-      height: 65vw;
+      height: 50vw;
+    }
+
+    section.relative {
+      width: 100%;
+      height: 100%;
     }
 
     div.title-container {
       width: 100%;
-      height: 100%;
+      height: 5em;
       background: $gray-600;
       display: grid;
       place-items: center flex-start;
       padding: 1em;
+
+      border-top: 0.5em solid $black;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+
+      overflow: hidden;
+
       h2 {
         margin: 0;
         font-weight: 200;
         text-transform: uppercase;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100%;
 
         @media (max-width: $largeTablet) {
           font-size: 1em;
@@ -50,9 +77,11 @@ div.portfolio-items-grid {
 
     div.img-container {
       width: 100%;
-
+      height: 100%;
+      overflow: hidden;
       & > div {
         width: 100%;
+        height: 100%;
       }
 
       img {
@@ -81,11 +110,7 @@ div.portfolio-items-grid {
     position: absolute;
     top: 0;
     left: 0;
-    height: 30%;
-
-    @media (max-width: $phone) {
-      height: 20%;
-    }
+    height: 100%;
   }
 
   div.hover-animation {

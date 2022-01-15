@@ -62,13 +62,15 @@ function Project({ project }: PortfolioItemProps) {
              }) }
     >
       <div className={`animation-container ${hover ? 'hover-animation' : 'exit-hover-animation'}`}>
-        <div className="img-container">
-          <Image src={ project.thumbnail || defaultPortfolioBackground } width="300" height="250"
-                 alt={`Thumbnail for ${ project.title }`}/>
-        </div>
-        <div className="title-container">
-          <h2>{project.title}</h2>
-        </div>
+        <section className="relative">
+          <div className="img-container">
+            <Image src={ project.thumbnail || defaultPortfolioBackground } width="300" height="250"
+                   alt={`Thumbnail for ${ project.title }`}/>
+          </div>
+          <div className="title-container">
+            <h2>{project.title}</h2>
+          </div>
+        </section>
       </div>
     </section>
   )
