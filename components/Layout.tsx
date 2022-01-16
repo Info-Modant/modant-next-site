@@ -21,9 +21,10 @@ export function ModantHelmet() {
 interface LayoutProps {
   children: ReactNode | ReactNodeArray,
   className?: string,
+  useFullPage?: boolean,
 }
 
-export function Layout ({ children, className }: LayoutProps) {
+export function Layout ({ children, className, useFullPage }: LayoutProps) {
 
   return (
     <>
@@ -32,7 +33,7 @@ export function Layout ({ children, className }: LayoutProps) {
       <div className={`layout ${ className }`}>
         <main>{children}</main>
       </div>
-      <Footer />
+      { !useFullPage && <Footer /> }
       <ToastContainer />
     </>
   )

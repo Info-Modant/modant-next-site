@@ -1,5 +1,6 @@
 import ReactFullPage from '@fullpage/react-fullpage';
 import {ReactNode, ReactNodeArray} from 'react';
+import {Footer} from "./Footer";
 
 interface FullPageProps {
   children: ReactNode | ReactNodeArray
@@ -17,6 +18,7 @@ export function FullPage({ children }: FullPageProps) {
         return (
           <ReactFullPage.Wrapper>
             { children }
+            <Footer />
           </ReactFullPage.Wrapper>
         );
       }}

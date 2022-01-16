@@ -15,7 +15,7 @@ const aboutUs = require('../data/aboutUs.json') as AboutUs;
 export default function IndexPage() {
 
   return (
-    <Layout className="index-page">
+    <Layout className="index-page" useFullPage>
       <FullPage>
         <VimeoAutoplay url={ siteInfo.autoplayVideoLink } />
         <InitialContainer />
