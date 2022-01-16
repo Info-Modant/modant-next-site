@@ -103,8 +103,8 @@ div.description-and-profile {
   grid-gap: 2em;
   padding-top: 3em;
 
-  @media (max-width: $narrowDesktop) {
-    grid-template-columns: calc(100% - 27em) 25em;
+  @media (max-width: $desktop) {
+    grid-template-columns: calc(100% - 22em) 20em;
   }
 
   @media (max-width: $largeTablet) {
