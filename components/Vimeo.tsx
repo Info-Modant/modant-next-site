@@ -1,4 +1,5 @@
 import ReactPlayer from 'react-player';
+import {FullPageContainer} from "./FullPageContainer";
 
 interface VimeoProps {
   src: string,
@@ -22,19 +23,19 @@ interface VimeoAutoplayProps {
 
 export function VimeoAutoplay({ url }: VimeoAutoplayProps) {
   return (
-    <div className="vimeo-container autoplay">
+    <FullPageContainer className="vimeo-container autoplay">
       <section className="responsive">
         <ReactPlayer url={ url } className="react-player" playing muted width="100%" height="100%"
-          config={ {
-            vimeo: {
-              playerOptions: {
-                background: true,
-                loop: true,
-              },
-            }
-          } }
+                     config={ {
+                       vimeo: {
+                         playerOptions: {
+                           background: true,
+                           loop: true,
+                         },
+                       }
+                     } }
         />
       </section>
-    </div>
+    </FullPageContainer>
   )
 }

@@ -17,7 +17,7 @@ export function AboutUsContainer({ aboutUs }: AboutUsContainerProps) {
   const router = useRouter();
 
   return (
-    <div className="about-us-container">
+    <div className="about-us-container section">
       <Title title={ aboutUs.title } underlineColor={ Color.Primary } />
       <div className="description-and-profile">
         <div className="description-section">

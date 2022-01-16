@@ -6,6 +6,7 @@ import {AboutUs, SiteInfo} from "../data/dataStructure";
 import {AboutUsContainer} from "../components/AboutUsContainer";
 import {useRouter} from "next/router";
 import {VimeoAutoplay} from "../components/Vimeo";
+import {FullPage, FullPageContainer} from "../components/FullPageContainer";
 
 // Retrieve data
 const siteInfo = require('../data/siteInfo.json') as SiteInfo;
@@ -15,9 +16,11 @@ export default function IndexPage() {
 
   return (
     <Layout className="index-page">
-      <VimeoAutoplay url={ siteInfo.autoplayVideoLink } />
-      <InitialContainer />
-      <AboutUsContainer aboutUs={ aboutUs } />
+      <FullPage>
+        <VimeoAutoplay url={ siteInfo.autoplayVideoLink } />
+        <InitialContainer />
+        <AboutUsContainer aboutUs={ aboutUs } />
+      </FullPage>
     </Layout>
   )
 
@@ -26,7 +29,7 @@ export default function IndexPage() {
 function InitialContainer() {
 
   return (
-    <div className="initial-container">
+    <FullPageContainer className="initial-container ">
       <div className="home-background-image" />
       <section className="home-main-section">
         <h1>{ siteInfo.title }</h1>
@@ -37,7 +40,7 @@ function InitialContainer() {
       <section className="showreel-button-section">
         <ShowReelButton />
       </section>
-    </div>
+    </FullPageContainer>
   )
 }
 
